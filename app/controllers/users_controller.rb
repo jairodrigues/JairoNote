@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     #adiciona a nota a um usuario convidado
     @user.guest_notes << @note
 
+    #Metodo da função de email Mailers que envia para o metodo new_note_permission como parametro os objetos note e user.
+    #função deliver_now envia o email na mesma hora que esta função for execultada
+    NoteMailer.new_note_permission(@note, @user).deliver_now
     render json: {message: "Compartilhamento bem sucedido!"}, status: :ok
   end
 
@@ -19,6 +22,8 @@ class UsersController < ApplicationController
     #Apaga o acesso a nota do usuario convidado (Nota é passada com parametro pela URL)
     @user.guest_notes.delete(@note.id)
 
+    #Envia para o metodo permission_revoked como parametro os metodos note e user
+    NoteMailer.permission_revoked(@note, @user).deliver_now
     render json: {message: "Permissão revogada com sucesoo!"}, status: :ok
   end
 
