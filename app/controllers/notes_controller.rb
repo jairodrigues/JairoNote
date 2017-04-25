@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     #O sinal + significa uma soma de Arrays
     @notes = current_user.notes + current_user.guest_notes
     #Renderiza no formato json todas as notas incluindo os dados de records(modelo) relacionados dos usuarios convidados e as tags relacionadas dela
-    render :json => @notes.to_json(:include => [:users, :tags])
+    #render :json => @notes.to_json(:include => [:users, :tags])
 
   end
 
