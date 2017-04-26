@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # Rotas para as notas, somente criação, alteração, index, vizualização de apenas uma nota e exclusão.
   resources :notes, only: [:create, :update, :index, :show, :destroy]
+  
+  root :to => "notes#index"
 
   #Criação de uma nota e seu id apartir de um id de um usuario
   post '/users/:id/add_note/:note_id', to: 'users#add_note'
