@@ -1,1 +1,5 @@
-<%= @user.email %>, você acaba de perder o acesso para editar a nota <%= @note.title %>
+<h4>Seu acesso a uma nota foi removido</h4>
+
+<p>
+  Olá, o usuário <%= @note.user.email %> revogou seu acesso a nota <%= @note.title %>.
+</p>
