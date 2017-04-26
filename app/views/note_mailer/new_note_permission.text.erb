@@ -1,3 +1,7 @@
-Note#new_note_permission
+<h4>Você recebeu a permissão para editar uma nova nota</h4>
 
-<%= @greeting %>, find me in app/views/note_mailer/new_note_permission.text.erb
+<p>
+  Olá, o usuário <%= @note.user.email %> compartilhou uma nota chamada <%= @note.title %> com você.
+</p>
+
+Visite suas notas <a href="http://localhost:3000">clicando aqui</a> para edita-la.
